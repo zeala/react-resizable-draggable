@@ -47,7 +47,7 @@ body {
   margin: 10px;
   padding: 10px;
   float: left;
-  position: relative;
+  position: absolute;
   display: inline-block;
 }
 
@@ -83,7 +83,7 @@ body {
 }
 
 .react-resizable {
-  position: relative;
+  position: absolute;
 }
 .react-resizable-handle {
   position: absolute;

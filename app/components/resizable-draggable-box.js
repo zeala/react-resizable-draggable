@@ -19,16 +19,22 @@ export default class ResizableDraggableBox extends React.Component {
     onResize (...args){
         console.log(args);
         this.setState({width: event.x, height: event.y});
+        console.log(this);
+
+        this.setState({zIndex: 100});
+
+
     };
 
     render() {
         return (
-            <div>
+            <div ref='box'>
                 <Draggable
                     handle=".handle"
+                    ref='draggable'
                     start={{x: 0, y: 0}}
                     grid={[25, 25]}
-                    zIndex={2}>
+                    zIndex={this.state.zIndex}>
                     <Resizable
                         width={this.state.width}
                         height={this.state.height}
@@ -37,6 +43,7 @@ export default class ResizableDraggableBox extends React.Component {
                         style={{width: this.state.width + 'px', height: this.state.height + 'px'}}
                         onResize={(event) => this.onResize(event)}
                         onClick={() => this.onClick()}
+                        zIndex={2}
                         >
                         {this.props.children}
                     </Resizable>
